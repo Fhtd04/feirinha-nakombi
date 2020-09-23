@@ -1,2 +1,41 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div id="banner">
+  <h1>Feirinha Nakombi</h1>
+    <h2>Produtos fresquinhos, direto do produtor, na sua casa</h2>
+    <p class="btn btn-success">Entre aqui!</p>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="card_landing">
+        <%= image_tag "carrotsBundle", class: "card_img" %>
+        <h2>Procure</h2>
+        <p>O hortifruti que você procura<strong>fresquinho!</strong></p>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="card_landing">
+        <%= image_tag "localProducer", class: "card_img" %>
+        <h2>Escolha</h2>
+          <p>Dos nossos selecionados<strong>produtores locais!</strong></p>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="card_landing">
+        <%= image_tag "productsMarket", class: "card_img" %>
+        <h2>Compre e receba</h2>
+        <p>Sem sair de casa e com a <strong>entrega mais rápida!</strong></p>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <div class="card_landing">
+        <%= image_tag "tableDinner", class: "card_img" %>
+        <h2>Saboreie</h2>
+        <p>Fresco, saudável, <strong>no mesmo dia!</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
