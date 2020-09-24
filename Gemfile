@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.7'
 # Cria o .env
 gem 'dotenv-rails', groups: [:development, :test]
 
+# Instala o Cloudinei
+gem 'cloudinary', '~> 1.16.0'
+
 #user login auth system gem
 gem 'devise'
 
