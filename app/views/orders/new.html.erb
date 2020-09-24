@@ -1,0 +1,9 @@
+<h1>Novo Pedido</h1>
+
+
+<%= simple_form_for [@product, @order] do |f|%>
+  <%= f.input :ask %>
+  <%= f.button :submit, value: "Comprar" %>
+<% end %>
+
+<%= link_to 'Back', product_path(@product) %>

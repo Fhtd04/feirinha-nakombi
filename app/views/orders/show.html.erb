@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Check-out!</h2>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @order.ask %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  Total R$ <%= @product.price * @order.ask %>,00
+</p>
+
+
+
+<%= link_to 'Back to home', root_path %>

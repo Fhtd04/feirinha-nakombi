@@ -16,6 +16,14 @@
       <% if @product.user == current_user %>
         <td><%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %></td>
       <% end %>
+      
+      <% if @product.user != current_user && current_user%>
+        <%= simple_form_for [@product, @order] do |f|%>
+          <%= f.input :ask %>
+          <%= f.button :submit, value: "Comprar" %>
+        <% end %>
+      <% end %>
+      
       <%= link_to 'Back', products_path, class: "btn btn-primary" %>
     </div>
   </div>
