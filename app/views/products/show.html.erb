@@ -1,6 +1,9 @@
+
+
 <div class="container d-flex justify-content-center">
   <div class="card" style="width: 18rem;">
     <%= image_tag "carrotsBundle", class: "card-img-top d-block w-100" %>
+    <%= cl_image_tag @article.photo.key, height: 300, width: 400, crop: :fill %>
     <div class="card-body">
       <div class="card_title">
         <h2 class="card-title"><%= @product.name %></h2>
@@ -16,14 +19,14 @@
       <% if @product.user == current_user %>
         <td><%= link_to 'Edit', edit_product_path(@product), class: "btn btn-warning" %></td>
       <% end %>
-      
+
       <% if @product.user != current_user && current_user%>
         <%= simple_form_for [@product, @order] do |f|%>
           <%= f.input :ask %>
           <%= f.button :submit, value: "Comprar" %>
         <% end %>
       <% end %>
-      
+
       <%= link_to 'Back', products_path, class: "btn btn-primary" %>
     </div>
   </div>
