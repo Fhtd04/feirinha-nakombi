@@ -1,22 +1,20 @@
 <p id="notice"><%= notice %></p>
-
-<h2>Check-out!</h2>
-
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Quantity:</strong>
-  <%= @order.ask %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  Total R$ <%= @product.price * @order.ask %>,00
-</p>
-
-
-
-<%= link_to 'Back to home', root_path %>
+<div class="container d-flex justify-content-center">
+  <div class="jumbotron">
+    <h1 class="display-4">Compra realizada!</h1>
+    <p class="lead">Seu pedido está sendo processado e irá hoje mesmo para sua casa.</p>
+    <hr class="my-4">
+    <p>Você adiquiriu <%= @order.ask %> unidade(s) de <%= @product.name %> a R$ <%= @product.price * @order.ask %>,00!</p>
+    <p>
+      <% message1 = ["Um ótimo negócio, se você me permite dizer. 😁👍", "Nossa, que preço bom! 😱", "Eita, será que ainda tem? Também quero!"] %>
+      <%= "#{message1.sample}" %>
+    </p>
+    <p>
+      <% message2 = ["Já vejo que hoje à noite haverá um ensopado de", "Oba, eu adoro ", "Prepara a mesa que hoje à noite tem "] %>
+      <%= "#{message2.sample} #{@product.name}." %>
+    </p>
+    <div class="container d-flex justify-content-center">
+      <%= link_to 'Voltar', root_path, class: "btn btn-success" %>
+    </div>
+  </div>
+</div>
