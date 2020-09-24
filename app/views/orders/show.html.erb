@@ -9,12 +9,12 @@
 
 <p>
   <strong>Quantity:</strong>
-  <%= @product.quantity %>
+  <%= @order.ask %>
 </p>
 
 <p>
   <strong>Price:</strong>
-  Total R$ <%= @product.price %>,00
+  Total R$ <%= @product.price * @order.ask %>,00
 </p>
 
 

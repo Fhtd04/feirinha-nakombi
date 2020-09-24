@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    @product = Product.find(@order.product_id)
+    @user = User.find(@order.user_id)
   end
 
   def new
@@ -11,10 +13,11 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    @order.product = @product
+    @order.user = current_user
+    @order.product_id = params[:product_id]
 
     if @order.save
-      redirect_to product_path(@product)
+      redirect_to product_order_path(@product.id, @order.id)
     else
       render :new
     end
@@ -27,7 +30,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:quantity, :product_id)
+    params.require(:order).permit(:ask, :product, :user)
   end
 
 end
