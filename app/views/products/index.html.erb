@@ -31,11 +31,11 @@
         <%= link_to 'Detalhar', product, class: "btn btn-primary rounded" %>
 
         <% if product.user == current_user %>
-          <%= link_to 'Editar', edit_product_path(product), class: "btn btn-warning rounded" %>
+          <%= link_to '', edit_product_path(product), class: "fas fa-pencil-alt" %>
         <% end %>
 
         <% if product.user == current_user %>
-          <%= link_to 'Apagar', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger rounded" %>
+          <%= link_to '', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt" %>
         <% end %>
       </div>
     </div>
