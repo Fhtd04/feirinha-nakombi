@@ -5,6 +5,21 @@
 
 <div class="container" id="Table_place">
   <h1 class="text-center mb-5" id="Index_title">Veja nossos produtos, direto do produtor!</h1>
+
+
+    <%= form_tag products_path, method: :get do %>
+      <div class="row ml-1">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control-lg",
+            placeholder: "Encontre seu produto"
+          %>
+          <%= submit_tag "Buscar", class: "btn-lg btn-primary" %>
+          <% end %>
+      </div>   
+ 
+  <hr>
+
   <table class="table">
     <thead class="thead-light">
       <tr>
