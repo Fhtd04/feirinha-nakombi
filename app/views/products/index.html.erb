@@ -1,57 +1,45 @@
+
 <p id="notice"><%= notice %></p>
 <div class="container d-flex justify-content-center" id="carousel_place">
   <%= render 'shared/carousel' %>
 </div>
 
-<div class="container" id="Table_place">
+<div class="container">
   <h1 class="text-center mb-5" id="Index_title">Veja nossos produtos, direto do produtor!</h1>
 
+  <%= form_tag products_path, method: :get do %>
+    <div class="row ml-1">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control-lg",
+          placeholder: "Encontre seu produto"
+        %>
+        <%= submit_tag "Buscar", class: "btn-lg btn-primary" %>
+    </div>
+  <% end %>
 
-    <%= form_tag products_path, method: :get do %>
-      <div class="row ml-1">
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control-lg",
-            placeholder: "Encontre seu produto"
-          %>
-          <%= submit_tag "Buscar", class: "btn-lg btn-primary" %>
-          <% end %>
-      </div>   
- 
   <hr>
+  <% @products.each do |product| %>
+    <div class="card-product-ind">
+      <%= cl_image_tag product.photo.key, width: 300, height: 300, secure: true %>
+      <div class="card-product-ind-infos">
+        <h1><%= product.name %></h1>
+        <p>Quantidade: <%= product.quantity %> caixas</p>
+        <br>
+        <h2>Preço: R$ <%= product.price %>,00</h2>
+        <br>
+        <%= link_to 'Detalhar', product, class: "btn btn-primary rounded" %>
 
-  <table class="table">
-    <thead class="thead-light">
-      <tr>
-        <th scope="col">Nome</th>
-        <th scope="col">Quantidade</th>
-        <th scope="col">Preço</th>
-        <th scope="col">Vendedor</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @products.each do |product| %>
-        <tr>
-          <td><%= product.name %></td>
-          <td><%= product.quantity %></td>
-          <td>R$ <%= product.price %></td>
-          <td><%= product.user.email %></td>
-          <td><%= link_to 'Detalhar', product, class: "btn btn-primary rounded" %></td>
+        <% if product.user == current_user %>
+          <%= link_to 'Editar', edit_product_path(product), class: "btn btn-warning rounded" %>
+        <% end %>
 
-          <% if product.user == current_user %>
-            <td><%= link_to '', edit_product_path(product), class: "fas fa-pencil-alt" %></td>
-          <% end %>
-
-          <% if product.user == current_user %>
-            <td><%= link_to '', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "far fa-trash-alt" %></td>
-          <% end %>
-
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+        <% if product.user == current_user %>
+          <%= link_to 'Apagar', product, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger rounded" %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
   <br>
   <!-- alterar o caminho para a home?? -->
   <div class="container d-flex justify-content-center mb-5">
@@ -61,4 +49,3 @@
   </div>
   <br>
 </div>
-

@@ -1,6 +1,11 @@
 class OrdersController < ApplicationController
   before_action :set_product, only: [:new, :create]
 
+  def index
+    @orders = current_user.orders
+  end
+
+
   def show
     @order = Order.find(params[:id])
     @product = Product.find(@order.product_id)
