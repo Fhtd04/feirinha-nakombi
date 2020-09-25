@@ -1,21 +1,24 @@
 <div class="container">
-  <div class="card-product">
-    <%= cl_image_tag @product.photo.key %>
-    <div class="card-product-infos">
-      <h1><%= @product.name %></h1>
-      <br>
-      <h4>Quantidade</h4>
-      <h6><%= @product.quantity %> caixas</h6>
-      <br>
-      <h4>Valor unit.</h4>
-      <h6>R$ <%= @product.price %>,00</h6>
-      <br>
-      <% if @product.user != current_user && current_user%>
-        <%= simple_form_for [@product, @order] do |f|%>
-          <%= f.input :ask, label: "Quantos você deseja?" %>
-          <%= f.button :submit, value: "Comprar", class: "btn btn-success" %>
-        <% end %>
-      <% end %>
+  <div class="card mb-3" style="max-width: 1000px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <%= cl_image_tag @product.photo.key, class: "card-img h-100 mw-50" %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= @product.name %></h5>
+          <h4 class="card-title">Quantidade</h4>
+          <p class="card-text"><%= @product.quantity %> caixas</p>
+          <h4 class="card-title">Valor unit.</h4>
+          <p class="card-text">R$ <%= @product.price %>,00</p>
+          <% if @product.user != current_user && current_user%>
+            <%= simple_form_for [@product, @order] do |f|%>
+              <%= f.input :ask, label: "Quantos você deseja?" %>
+              <%= f.button :submit, value: "Comprar", class: "btn btn-success" %>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
   <br>
