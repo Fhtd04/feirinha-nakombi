@@ -1,36 +1,41 @@
 <%= render 'shared/banner' %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-3">
+<div class="container rounded">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 ">
+    <div class="col mb-4">
       <div class="card_landing">
         <%= image_tag "carrotsBundle.jpg", class: "card_img" %>
-        <h2>Procure</h2>
-        <p>O hortifruti que você procura<strong>fresquinho!</strong></p>
+        <div class="card-body">
+          <h5 class="card-title">Descubra</h5>
+          <p class="card-text">O hortifruti <strong>que você procura</strong></p>
+        </div>
       </div>
     </div>
-
-    <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="col mb-4">
       <div class="card_landing">
         <%= image_tag "localProducer.jpg", class: "card_img" %>
-        <h2>Escolha</h2>
-        <p>Dos nossos selecionados<strong>produtores locais!</strong></p>
+        <div class="card-body">
+          <h5 class="card-title">Escolha</h5>
+          <p class="card-text">Dos nossos <strong>produtores locais!</strong></p>
+        </div>
       </div>
     </div>
-
-    <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="col mb-4">
       <div class="card_landing">
         <%= image_tag "productsMarket.jpg", class: "card_img" %>
-        <h2>Compre e receba</h2>
-        <p>Sem sair de casa e com a <strong>entrega mais rápida!</strong></p>
+        <div class="card-body">
+          <h5 class="card-title">Receba</h5>
+          <p class="card-text">Sem sair de casa e com <strong>agilidade!</strong></p>
+        </div>
       </div>
     </div>
-
-    <div class="col-xs-12 col-sm-6 col-md-3">
+    <div class="col mb-4">
       <div class="card_landing">
         <%= image_tag "tableDinner.jpg", class: "card_img" %>
-        <h2>Saboreie</h2>
-        <p>Fresco, saudável, <strong>no mesmo dia!</strong></p>
+        <div class="card-body">
+          <h5 class="card-title">Saboreie</h5>
+          <p class="card-text">Fresco, saudável, <strong>no mesmo dia!</strong></p>
+        </div>
       </div>
     </div>
   </div>
