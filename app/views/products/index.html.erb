@@ -7,6 +7,18 @@
 <div class="container">
   <h1 class="text-center mb-5" id="Index_title">Veja nossos produtos, direto do produtor!</h1>
 
+  <%= form_tag products_path, method: :get do %>
+    <div class="row ml-1">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control-lg",
+          placeholder: "Encontre seu produto"
+        %>
+        <%= submit_tag "Buscar", class: "btn-lg btn-primary" %>
+    </div>
+  <% end %>
+
+  <hr>
   <% @products.each do |product| %>
     <div class="card-product-ind">
       <%= cl_image_tag product.photo.key, width: 300, height: 300, secure: true %>
@@ -35,10 +47,5 @@
       <%= link_to 'Adicionar novo produto', new_product_path, class: "btn btn-success w-50 rounded" %>
     <% end %>
   </div>
+  <br>
 </div>
-
-
-
-
-
-
