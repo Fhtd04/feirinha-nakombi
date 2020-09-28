@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
     @product.user = current_user
 
     if @product.save
-      redirect_to @product, notice: "Produto criado!"
+      redirect_to @product
     else
       render :new
     end
@@ -38,7 +38,7 @@ class ProductsController < ApplicationController
     end
 
     @product.update(product_params)
-    redirect_to @product, notice: "Produto atualizado!"
+    redirect_to @product
   end
 
   def destroy
@@ -48,7 +48,7 @@ class ProductsController < ApplicationController
     end
 
     @product.destroy
-    redirect_to products_url, notice: "Produto deletado!"
+    redirect_to products_url
   end
 
   private
